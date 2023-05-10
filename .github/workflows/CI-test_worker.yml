@@ -22,6 +22,4 @@ jobs:
           pip install -r builder/requirements.txt
 
       - name: Test Worker
-        run: |
-          cd src
-          python src/whatever.py
+        run: python src/whatever.py
