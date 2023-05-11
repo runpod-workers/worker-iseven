@@ -22,4 +22,5 @@ jobs:
           pip install -r builder/requirements.txt
 
       - name: Test Worker
-        run: python src/whatever.py
+        run: |
+          python src/whatever.py --test_input='{"input": {"number": 2}}'
