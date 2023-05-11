@@ -26,6 +26,12 @@ jobs:
           python src/whatever.py --test_input='{"input": {"number": 2}}'
 
       - name: Test Worker Failure
-        continue-on-error: true
         run: |
           python src/whatever.py --test_input='{"input": {"number": "this will fail"}}'
+          exit_code=$?
+          if [ $exit_code -eq 0 ]; then
+            echo "Test failed: zero exit code returned."
+            exit 1
+          else
+            echo "Test passed: non-zero exit code returned."
+          fi
